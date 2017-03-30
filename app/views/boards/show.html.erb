@@ -1,0 +1,28 @@
+<h1><%= @board.title %></h1>
+
+<p><%= @board.description %></p>
+
+<table>
+  <tr>
+    <td>Rank</td>
+    <td>Team</td>
+    <td>Score</td>
+  </tr>
+  <% @board.scores.each do |score| %>
+    <tr>
+      <td><%= @ranks.to_s %></td>
+      <td><%= score.team %></td>
+      <td>
+        <%= link_to score.score,
+            edit_score_path(board_id: @board, id: score) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Submit a Score', new_score_path %>
+<%= link_to 'Delete this Board',
+    board_path(@board),
+    method: :delete,
+    data: { confirm: 'Delete this Board?' } %>
+<%= link_to 'Return to Boards Index', boards_path %>

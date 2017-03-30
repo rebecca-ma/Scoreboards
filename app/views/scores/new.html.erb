@@ -1,0 +1,5 @@
+<h1>Submit a New Score for <%= @board.title %></h1>
+
+<%= render 'form', submit_msg: 'Submit Score' %>
+
+<%= link_to 'Back to Board', board_path(@board) %>

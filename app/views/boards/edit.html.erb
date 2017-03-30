@@ -1,0 +1,5 @@
+<h1>Edit <%= @board.title %></h1>
+
+<%= render 'form', submit_msg: 'Save Changes' %>
+
+<%= link_to 'Cancel', board_path(@board) %>
