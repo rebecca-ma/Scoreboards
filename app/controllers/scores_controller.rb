@@ -35,7 +35,7 @@ class ScoresController < ApplicationController
 
   private
     def score_params
-      params.require(:score).permit(:team, :score, :board_id)
+      params.require(:score).permit(:team_id, :score, :board_id)
     end
 
     def find_score

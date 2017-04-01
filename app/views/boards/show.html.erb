@@ -8,10 +8,10 @@
     <td>Team</td>
     <td>Score</td>
   </tr>
-  <% @board.scores.each do |score| %>
+  <% @board.scores_by_rank.each do |score| %>
     <tr>
-      <td><%= @ranks.to_s %></td>
-      <td><%= score.team %></td>
+      <td><%= score.rank %></td>
+      <td><%= score.team.name %></td>
       <td>
         <%= link_to score.score,
             edit_score_path(board_id: @board, id: score) %>

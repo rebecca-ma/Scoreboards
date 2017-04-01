@@ -7,7 +7,7 @@ class BoardsController < ApplicationController
   def show
     # conditional on whether the board can be seen by non-admin
     @board = Board.find(params[:id])
-    @ranks = @board.get_ranks
+    @board.set_ranks
   end
 
   def new

@@ -3,8 +3,8 @@
 <%= form_for :score do |f| %>
   <%= f.hidden_field :board_id, value: @board.id %>
   <p>
-    <%= f.label 'Team Name' %>
-    <%= f.text_field :team %>
+    <%= f.label 'Team' %>
+    <%= f.collection_select :team_id, Team.pc, :id, :name %>
   </p>
   <p>
     <%= f.label 'Score (Integer)' %>

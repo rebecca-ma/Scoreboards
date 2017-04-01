@@ -1,0 +1,9 @@
+Board and Score are internally complete. You can create new Boards and submit scores to the boards. Scores are deleted with the Boards. Automatic ranking (high score = better) and sorting by rank.
+
+--- Teams and Users ---
+Add Mission model and controllers
+fix all controllers so that there are admin-specific methods (see AdminsController or UsersController for example)
+Check migrations and models for correctness
+
+Write all the views
+test. pls

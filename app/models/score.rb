@@ -1,6 +1,8 @@
 class Score < ApplicationRecord
-  belongs_to :board
+  attr_accessor :rank
 
-  validates :team, presence: true
+  belongs_to :board
+  belongs_to :team
+
   validates :score, presence: true
 end

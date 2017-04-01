@@ -1,18 +1,20 @@
 class Board < ApplicationRecord
-  has_many :scores, -> { order(score: :desc) }, dependent: :destroy
+  has_many :scores, dependent: :destroy
 
   validates :title, presence: true
 
-  def get_ranks
-    prev_s = 0
-    prev_i = 0
-    scores.each_with_index { |s, i|
-      if s.score == prev_s
-        prev_i + 1
-      else
-        prev_s = s.score
-        prev_i = i
-        i + 1
+  def scores_by_rank
+    scores.sort{ |a, b| a.rank <=> b.rank }
+  end
+
+  def set_ranks
+    scores.group_by { |s|
+      s.score
+    }.sort_by { |k, v|
+      -1 * k
+    }.each_with_index { |kv, i|
+      kv[1].each do |s|
+        s.rank = i + 1
       end
     }
   end
