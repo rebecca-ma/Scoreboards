@@ -1,0 +1,18 @@
+<%= render 'shared/errors', container: @admin %>
+<%= form_for @admin, url: url do |f| %>
+  <p>
+    <%= f.label 'Username' %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label 'Password' %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label 'Password Confirmation' %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit submit_msg %>
+  </p>
+<% end %>

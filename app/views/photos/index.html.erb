@@ -1,0 +1,8 @@
+<%= render 'shared/user_header', title: 'Photos' %>
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag @curr_user.team.image_url %></div>
+  <div id='upload_photo'>
+    <%= link_to 'Upload a Photo', new_photo_path %>
+  </div>
+  <%= render @photos, send_to: 'user' %>
+</div>

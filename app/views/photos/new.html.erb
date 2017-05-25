@@ -1,0 +1,25 @@
+<%= render 'shared/user_header', title: "Upload Photo" %>
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag @curr_user.team.image_url %></div>
+  <%= render 'shared/errors', container: @photo %>
+  
+  <%= form_for @photo do |f| %>
+    <%= f.hidden_field :user_id, value: @curr_user.id %>
+    <%= f.hidden_field :team_id, value: @curr_user.team.id %>
+    <p>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.label 'Caption' %>
+      <%= f.text_area :caption_text %>
+    </p>
+    <p>
+      <%= f.submit 'Upload' %>
+    </p>
+  <% end %>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', photos_path %></p>
+  </div>
+</div>

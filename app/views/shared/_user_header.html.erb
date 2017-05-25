@@ -1,0 +1,21 @@
+<div id='uheader'>
+  <div id='upage_title'><%= title %></div>
+  <div id='ulogo'>
+    <%= image_tag 'if_logo.jpg' %>
+  </div>
+  <div id='utabs'>
+    <div class='utab' id='uhome_tab'>
+      <%= link_to 'Home', home_user_path %>
+    </div>
+    <div class='utab' id='uteam_tab'>
+      <%= link_to 'Team', home_team_path %>
+    </div>
+    <div class='utab' id='uphotos_tab'>
+      <%= link_to 'Photos', photos_path %>
+    </div>
+    <div class='utab' id='ulogout_tab'>
+      <%= link_to 'Logout', logout_user_path %>
+    </div>
+  </div>
+  <div id='uheader-background'></div>
+</div>

@@ -20,7 +20,7 @@ class AdminsController < ApplicationController
     verify_admin {
       @admin = Admin.new(admin_params)
       if @admin.save
-        redirect_to admin_path(@curr_admin)
+        redirect_to admins_path
       else
         render 'new'
       end
@@ -47,7 +47,9 @@ class AdminsController < ApplicationController
   def destroy
     verify_admin {
       @admin = Admin.find(params[:id])
-      @admin.destroy
+      unless @admin == @curr_admin
+        @admin.destroy
+      end
       redirect_to admins_path
     }
   end
@@ -59,10 +61,10 @@ class AdminsController < ApplicationController
 
   def create_login
     verify_not_admin {
-      admin = Admin.authenticate(params[:username], params[:password])
+      admin = Admin.authenticate(login_params[:username], login_params[:password])
       if admin
         session[:admin_id] = admin.id
-        redirect_to admin_path(admin)
+        redirect_to home_admin_path
       else
         flash.now.alert = "Invalid username or password"
         render 'login'
@@ -80,5 +82,9 @@ class AdminsController < ApplicationController
   private
     def admin_params
       params.require(:admin).permit(:username, :password, :password_confirmation)
+    end
+    
+    def login_params
+      params.require(:admin).permit(:username, :password)
     end
 end

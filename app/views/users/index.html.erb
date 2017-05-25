@@ -1,0 +1,21 @@
+<%= render 'shared/admin_header', title: 'Users' %>
+
+<div id='content'>
+  <table class='table'>
+    <caption>Users</caption>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to user.team.name, team_path(user.team) %></td>
+        <td><%= link_to 'Delete',
+                user_path(user),
+                method: :delete,
+                data: { confirm: 'Delete this user?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

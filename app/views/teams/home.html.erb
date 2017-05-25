@@ -1,0 +1,40 @@
+<%= render 'shared/user_header', title: @team.name %>
+<div id='ucontent'>
+  <div id='uphoto'><%= image_tag @team.image_url %></div>
+  <div id='member_list'>
+    <table class='list'>
+      <caption>Team Members</caption>
+      <% @team.users.each do |user| %>
+        <tr><td><%= user.username %></td></tr>
+      <% end %>
+    </table>
+  </div>
+  
+  <div id='mission_list'>
+    <table class='list'>
+      <caption>Missions</caption>
+      <% @team.missions.each do |mission| %>
+        <tr>
+          <td>
+            <%= link_to mission.title, mission_path(mission) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div id='board_list'>
+    <table class='list'>
+      <caption>Score Boards</caption>
+      <% @team.boards.each do |board| %>
+        <% if board.visible? %>
+          <tr>
+            <td> 
+              <%= link_to board.title, board_path(board) %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>  

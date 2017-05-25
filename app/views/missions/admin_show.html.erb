@@ -1,0 +1,49 @@
+<%= render 'shared/admin_header', title: @mission.title %>
+
+<div id='content'>
+  <p><%= @mission.description %></p>
+  
+  <p>Assigned by: <%= @mission.giver %></p>
+  
+  <p>
+    <%= link_to 'Assign this Mission to a Team',
+        new_mission_assignment_path(@mission) %>
+  </p>
+  
+  <table class='table'>
+    <caption>Currently Assigned To</caption>
+    <tr>
+      <th>Team</th>
+      <th>Start Time</th>
+      <th>Completed Time</th>
+    </tr>
+    <% @mission.assignments.each do |assignment| %>
+      <tr>
+        <td>
+          <%= link_to assignment.team.name, team_path(assignment.team) %>
+        </td>
+        <td>
+          <%= assignment.start_time %>
+        </td>
+        <td>
+          <%= assignment.completed_time %>
+        </td>
+        <td>
+          <%= link_to 'Edit',
+              edit_mission_assignment_path(@mission, assignment) %>
+        </td>
+        <td>
+          <%= link_to 'Unassign',
+              mission_assignment_path(@mission, assignment),
+              method: :delete,
+              data: { confirm: "Unassign this Team?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Edit', edit_mission_path(@mission) %></p>
+    <p><%= link_to 'Back to Mission Index', missions_path %></p>
+  </div>
+</div>

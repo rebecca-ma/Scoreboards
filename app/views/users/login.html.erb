@@ -1,0 +1,19 @@
+<%= render 'shared/login_header', title: 'Login' %>
+
+<div id='lcontent'>
+  <%= form_for :user, url: login_path do |f| %>
+    <div id='small_logo'><%= image_tag 'logo_black.png' %></div>
+    <p>
+      <%= f.label 'Codename' %>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label 'Password' %>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.submit 'Login' %>
+    </p>
+  <% end %>
+  <p><%= link_to 'Register', new_user_path %></p>
+</div>

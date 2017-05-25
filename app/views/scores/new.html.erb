@@ -1,5 +1,8 @@
-<h1>Submit a New Score for <%= @board.title %></h1>
-
-<%= render 'form', submit_msg: 'Submit Score' %>
-
-<%= link_to 'Back to Board', board_path(@board) %>
+<%= render 'shared/admin_header', title: 'New Score for ' + @board.title %>
+<div id='content'>
+  <%= render 'form', submit_msg: 'Submit Score' %>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', admin_board_path(@board) %>
+  </div>
+</div>

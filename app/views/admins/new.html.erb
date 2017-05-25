@@ -1,0 +1,7 @@
+<%= render 'shared/admin_header', title: 'New Admin' %>
+<div id='content'>
+  <%= render 'form', url: admins_path, submit_msg: 'Create Admin' %>
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', admins_path %></p>
+  </div>
+</div>

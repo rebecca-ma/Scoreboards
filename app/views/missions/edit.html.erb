@@ -1,0 +1,7 @@
+<%= render 'shared/admin_header', title: 'Edit Mission' %>
+<div id='content'>
+  <%= render 'form', submit_msg: 'Save Changes' %>
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', admin_mission_path(@mission) %></p>
+  </div>
+</div>

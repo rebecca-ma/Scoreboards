@@ -1,0 +1,61 @@
+<%= render 'shared/admin_header', title: @team.name %>
+
+<div id='content'>
+  <p class='info'>
+    <% if @team.npc %>
+      Type: NPC Team
+    <% else %>
+      Type: PC Team
+    <% end %>
+  <p>
+  
+  <% if @team.pc? %>
+    <p class='info'>Login Code: <%= @team.code %></p>
+  <% end %>
+  
+  <table class='table'>
+    <caption>Missions Assigned to this Team</caption>
+    <tr>
+      <th>Mission</th>
+      <th>Start Time</th>
+      <th>Completed Time</th>
+    </tr>
+    <% @team.assignments.each do |assignment| %>
+      <tr>
+        <td>
+          <%= link_to assignment.mission.title,
+              mission_path(assignment.mission) %>
+        </td>
+        <td><%= assignment.start_time %></td>
+        <td><%= assignment.completed_time %></td>
+        <td>
+          <%= link_to 'Remove Assignment',
+              mission_assignment_path(assignment.mission, assignment),
+              method: :delete,
+              data: { confirm: "Unassign Team from This Mission?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <table class='list'>
+    <caption>Boards this Team is on</caption>
+    <% @team.boards.each do |board| %>
+      <tr>
+        <td><%= link_to board.title, admin_board_path(board) %></td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <table class='list'>
+    <caption>Users in this Team</caption>
+    <% @team.users.each do |user| %>
+      <tr><td><%= user.name %></td></tr>
+    <% end %>
+  </table>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Edit', edit_team_path(@team) %></p>
+    <p><%= link_to 'Return to Team Index', teams_path %></p>
+  </div>
+</div>

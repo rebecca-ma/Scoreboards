@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     verify_not_user {
       @user = User.new(user_params)
       if @user.save
-        redirect_to user_path(@user)
+        redirect_to home_user_path
       else
         render 'new'
       end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     verify_user {
       if @curr_user.update(user_params)
-        redirect_to user_path(@curr_user)
+        redirect_to home_user_path
       else
         render 'edit'
       end
@@ -39,40 +39,6 @@ class UsersController < ApplicationController
   def index
     verify_admin {
       @users = User.all
-    }
-  end
-
-  def admin_new
-    verify_admin {
-      @user = User.new
-    }
-  end
-
-  def admin_create
-    verify_admin {
-      @user = User.new(user_params_admin)
-      if @user.save
-        redirect_to users_path
-      else
-        render 'admin_new'
-      end
-    }
-  end
-
-  def admin_edit
-    verify_admin {
-      @user = User.find(params[:id])
-    }
-  end
-  
-  def admin_update
-    verify_admin {
-      @user = User.find(params[:id])
-      if @user.update(user_params_admin)
-        redirect_to users_path
-      else
-        render 'admin_edit'
-      end
     }
   end
 
@@ -89,12 +55,12 @@ class UsersController < ApplicationController
     verify_not_user {}
   end
 
-  def create_session
+  def create_login
     verify_not_user {
-      user = User.authenticate(params[:username], params[:password])
+      user = User.authenticate(login_params[:username], login_params[:password])
       if user
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        redirect_to home_user_path
       else
         flash.now.alert = "Invalid username or password"
         render 'login'
@@ -105,7 +71,7 @@ class UsersController < ApplicationController
   def logout
     verify_user {
       session[:user_id] = nil
-      redirect_to user_login_path
+      redirect_to login_user_path
     }
   end
  
@@ -114,7 +80,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :username, :password, :password_confirmation, :code)
     end
 
-    def user_params_admin
-      params.require(:user).permit(:name, :username, :password, :password_confirmation, :team_id)
+    def login_params
+      params.require(:user).permit(:username, :password)
     end
 end

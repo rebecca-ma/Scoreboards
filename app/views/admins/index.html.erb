@@ -1,0 +1,21 @@
+<%= render 'shared/admin_header', title: 'Admins' %>
+
+<div id='content'>
+  <p><%= link_to 'Add a new Admin', new_admin_path %></p>
+
+  <table class='table'>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.username %></td>
+        <td><% if admin != @curr_admin %>
+              <%= link_to 'delete',
+                  admin_path(admin),
+                  method: :delete,
+                  data: { confirm: 'Delete this Admin?' } %>
+            <% else %>
+              <%= link_to 'edit', edit_admin_path(admin) %>
+            <% end %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

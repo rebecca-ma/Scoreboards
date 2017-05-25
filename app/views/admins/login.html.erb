@@ -1,0 +1,15 @@
+<h1>Admin Login</h1>
+
+<%= form_for :admin, url: login_admin_path do |f| %>
+  <p>
+    <%= f.label 'Username' %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label 'Password' %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit 'Login' %>
+  </p>
+<% end %>

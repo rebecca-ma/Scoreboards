@@ -1,0 +1,31 @@
+<%= render 'shared/user_header', title: 'View Photo' %>
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag @curr_user.team.image_url %></div>
+  <div id="photo">
+    <%= link_to image_tag(@photo.image.url),
+                @photo.image.url, target: '_blank' %>
+  </div>
+  <div id="photo_caption">
+    <p><%= @photo.caption.text %></p>
+  </div>
+  <div id="photo_caption_foot">
+    <% if @curr_user == @photo.user %>
+      <%= link_to 'Edit Caption',
+          edit_photo_caption_path(@photo, @photo.caption) %>
+    <% elsif @photo.user.blank? %>
+      Uploaded by admin
+    <% else %>
+      Uploaded by <%= @photo.user.username %>
+    <% end %>
+  </div>
+  
+  <div id='foot_links'>
+    <% if @curr_user == @photo.user %>
+      <p><%= link_to 'Delete Photo',
+             photo_path(@photo),
+             method: :delete,
+             data: { confirm: 'Delete this Photo?' } %></p>
+    <% end %>
+    <p><%= link_to 'Return to Photo Index', photos_path %></p>
+  </div>
+</div>

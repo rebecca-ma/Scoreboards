@@ -1,0 +1,17 @@
+<%= render 'shared/errors', container: @team %>
+
+<%= form_for @team do |f| %>
+  <p><%= f.label 'Team Name' %>
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.label 'NPC team?' %>
+    <%= f.check_box :npc %>
+  </p>
+  <p><%= f.label 'If a PC team, give a new user login code' %>
+    <%= f.text_field :code %>
+  </p>
+  <p><%= f.label 'If a PC team, give the image URL for the team logo' %>
+    <%= f.text_field :image_url %>
+  </p>
+  <p><%= f.submit submit_msg %></p>
+<% end %>

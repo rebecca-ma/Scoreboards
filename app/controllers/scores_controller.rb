@@ -1,36 +1,46 @@
 class ScoresController < ApplicationController
   def new
-    @score = Score.new
-    @board = Board.find(params[:id])
+    verify_admin {
+      @score = Score.new
+      @board = Board.find(params[:board_id])
+    }
   end
 
   def create
-    @score = Score.new(score_params)
-    @board = Board.find(params[:id])
-    if @score.save
-      redirect_to board_path(@board)
-    else
-      render 'new'
-    end
+    verify_admin {
+      @score = Score.new(score_params)
+      @board = Board.find(params[:board_id])
+      if @score.save
+        redirect_to admin_board_path(@board)
+      else
+        render 'new'
+      end
+    }
   end
 
   def edit
-    find_score
+    verify_admin {
+      find_score
+    }
   end
 
   def update
-    find_score
-    if @score.update(score_params)
-      redirect_to board_path(@board)
-    else
-      render 'edit'
-    end
+    verify_admin {
+      find_score
+      if @score.update(score_params)
+        redirect_to admin_board_path(@board)
+      else
+        render 'edit'
+      end
+    }
   end
 
   def destroy
-    find_score
-    @score.destroy
-    redirect_to board_path(@board)
+    verify_admin {
+      find_score
+      @score.destroy
+      redirect_to admin_board_path(@board)
+    }
   end
 
   private

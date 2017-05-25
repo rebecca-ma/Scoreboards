@@ -1,0 +1,11 @@
+<%= render 'shared/user_header', title: @mission.title %>
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag @curr_user.team.image_url %></div>
+  <% unless @mission.giver.blank? %>
+    <div id='mission_giver'>Assigned by: <%= @mission.giver %></div>
+  <% end %>
+  <div id='mission_description'><%= @mission.description %></div>
+  <div id='foot_links'>
+    <p><%= link_to 'Return', home_team_path %></p>  
+  </div>
+</div>

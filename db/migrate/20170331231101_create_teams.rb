@@ -4,6 +4,7 @@ class CreateTeams < ActiveRecord::Migration[5.0]
       t.string :name
       t.boolean :npc
       t.string :code
+      t.string :image_url
       t.timestamps
     end
   end

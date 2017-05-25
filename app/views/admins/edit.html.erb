@@ -1,0 +1,9 @@
+<%= render 'shared/admin_header', title: 'Edit Admin Login' %>
+<div id='content'>
+  <%= render 'form',
+      url: admin_path(@admin),
+      submit_msg: 'Save Changes' %>
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', home_admin_path %></p>
+  </div>
+</div>

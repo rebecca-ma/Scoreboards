@@ -1,8 +1,22 @@
-<h1>Boards Index</h1>
+<%= render 'shared/admin_header', title: 'Boards' %>
 
-<p><%= link_to 'Create a New Board', new_board_path %></p>
-<% @boards.each do |board| %>
-  <p>
-    <%= link_to board.title, board_path(board) %>
-  </p>
-<% end %>
+<div id='content'>
+  <p><%= link_to 'Create a New Board', new_board_path %></p>
+  
+  <table class='table'>
+    <tr>
+      <th>Title</th>
+    </tr>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><%= link_to board.title, admin_board_path(board) %></td>
+        <td><%= link_to 'Edit', edit_board_path(board) %></td>
+        <td>
+          <%= link_to 'Delete',
+              board_path(board),
+              method: :delete,
+              data: { confirm: 'Delete this board?' } %>
+        </td>
+      </tr>
+  <% end %>
+</div>

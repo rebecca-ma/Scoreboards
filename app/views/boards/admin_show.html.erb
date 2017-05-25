@@ -1,0 +1,39 @@
+<%= render 'shared/admin_header', title: @board.title %>
+<div id='content'>
+  <p><%= @board.description %></p>
+  
+  <table class='score_board'>
+    <caption>Scores</caption>
+    <tr>
+      <th>Rank</th>
+      <th>Team</th>
+      <th>Score</th>
+      <th></th>
+    </tr>
+    <% @board.scores_by_rank.each do |score| %>
+      <tr>
+        <td><%= score.rank %></td>
+        <td><%= score.team.name %></td>
+        <td>
+          <%= link_to score.score,
+              edit_board_score_path(board_id: @board, id: score) %>
+        </td>
+        <td>
+          <%= link_to 'Delete',
+              board_score_path(@board, score),
+              method: :delete,
+              data: { confirm: 'Delete this score?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div id='foot_links'>  
+    <p><%= link_to 'Submit a Score', new_board_score_path(@board) %></p>
+    <p><%= link_to 'Delete this Board',
+           board_path(@board),
+           method: :delete,
+           data: { confirm: 'Delete this Board?' } %></p>
+    <p><%= link_to 'Return to Boards Index', boards_path %></p>
+  </div>
+</div>

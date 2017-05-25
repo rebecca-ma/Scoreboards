@@ -1,0 +1,8 @@
+<%= render 'shared/user_header', title: 'Home' %>
+
+<div id='ucontent'>
+  <div id='uphoto'><%= image_tag 'logo_black.png' %></div>
+  <p>Welcome to the International Fleet Training Program, <%= @curr_user.name %></p>
+  <p>You are a member of team <%= @curr_user.team.name %>. Your codename is <%= @curr_user.username %>.</p>
+  <p><%= link_to 'Edit your information', edit_user_path(@curr_user) %></p>
+</div>

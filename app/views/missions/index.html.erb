@@ -1,0 +1,21 @@
+<%= render 'shared/admin_header', title: 'Missions' %>
+
+<div id='content'>
+  <p><%= link_to 'Create a New Mission', new_mission_path %></p>
+  
+  <table class='table'>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td>
+          <%= link_to mission.title, admin_mission_path(mission) %>
+        </td>
+        <td>
+          <%= link_to 'Delete',
+              mission_path(mission),
+              method: :delete,
+              data: { confirm: 'Delete this Mission?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

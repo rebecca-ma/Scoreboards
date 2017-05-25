@@ -1,0 +1,5 @@
+<%= render 'shared/admin_header', title: 'Photos' %>
+<div id='content'>
+  <p><%= link_to 'Upload a Photo', admin_new_photo_path %></p>
+  <%= render partial: 'admin_photo', collection: @photos, as: :photo %>
+</div>

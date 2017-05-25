@@ -1,0 +1,32 @@
+<%= render 'shared/login_header', title: 'Registration' %>
+<div id='lcontent'>
+  <div id='small_logo'><%= image_tag 'logo_black.png' %></div>
+  <%= render 'shared/errors', container: @user %>
+  <%= form_for @user do |f| %>
+    <p>
+      <%= f.label 'Name' %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label 'Codename' %>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label 'Password' %>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label 'Confirm Password' %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= f.label 'Team Code' %>
+      <%= f.text_field :code %>
+    </p>
+    <p>
+      <%= f.submit 'Register' %>
+    </p>
+  <% end %>
+  
+  <p><%= link_to 'Login', login_path %></p>
+</div>                            

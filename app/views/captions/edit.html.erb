@@ -1,0 +1,15 @@
+<%= render 'shared/user_header', title: 'Edit Caption' %>
+
+<div id='ucontent'>
+  <%= form_for @caption, url: photo_caption_path(@photo, @caption) do |f| %>
+    <div id="photo">
+      <%= image_tag @photo.image.url %>
+    </div>
+    <p><%= f.text_area :text %></p>
+    <p><%= f.submit 'Save Caption' %></p>
+  <% end %>
+
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', photo_path(@photo) %></p>
+  </div>
+</div>

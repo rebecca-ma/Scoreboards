@@ -1,15 +1,17 @@
 module Authenticator
   extend ActiveSupport::Concern
+  
+  included do
+    attr_accessor :password
 
-  attr_accessor :password
+    validates :username, presence: true,
+                         uniqueness: true
+    validates :password, confirmation: true,
+                         presence: true,
+                         on: :create
 
-  validates :username, presence: true,
-                       uniqueness: true
-  validates :password, confirmation: true,
-                       presence: true,
-                       on: :create
-
-  before_save :encrypt_password
+    before_save :encrypt_password
+  end
 
   def encrypt_password
     if password.present?

@@ -1,9 +1,46 @@
 Board and Score are internally complete. You can create new Boards and submit scores to the boards. Scores are deleted with the Boards. Automatic ranking (high score = better) and sorting by rank.
 
 --- Teams and Users ---
-Add Mission model and controllers
-fix all controllers so that there are admin-specific methods (see AdminsController or UsersController for example)
 Check migrations and models for correctness
 
-Write all the views
-test. pls
+Admin:
+Check login (:admin) for how it actually works
+
+Mission:
+Add assigned_at/completed_at info to mission views. Change assignment model
+to handle this?
+Check that show view is complete
+
+Team:
+in edit.html.erb, check if want to redirect to teams index
+write home view
+Link to edit team in either index or show
+
+
+--- Models ---
+admin
+  - Authenticator
+  - Meant to represent the Stacker
+
+board
+  - Is a scoreboard for a particular event
+  - has many scores, one for each team
+
+mission
+  - Something an admin can assign to teams or users
+  - Maybe want child classes TeamMission, UserMission?
+  - belongs to user/team, belongs to admin?
+  - start with just assigned to teams
+
+score
+  - A single row on a scoreboard
+  - Belongs to board, belongs to team
+
+team
+  - As it sounds, a team. Can be either npc or pc.
+  - has many users, if it's pc
+
+user
+  - Authenticator
+  - belongs to a team
+  - represents a Stackee

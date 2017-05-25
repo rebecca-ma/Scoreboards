@@ -1,0 +1,91 @@
+// This defines the general layout of admin-only views
+
+#header {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: gray;
+}
+
+#page_title {
+    position: absolute;
+    margin: 10px;
+    padding: 0;
+    height: 50px;
+    width: inherit;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+
+#logo {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: silver;
+}
+
+#tabs {
+    position: absolute;
+    top: 50px;
+    left: 80px;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 700px;
+}
+
+#tabs div {
+    position: absolute;
+    margin: 0;
+    padding: 0, 10px;
+    height: 38px;
+    width: 98px;
+    border: gray 1px solid;
+    text-align: center;
+    vertical-align: middle;
+    background-color: silver;
+}
+
+#home_tab {
+    left: 0px;
+}
+
+#admins_tab {
+    left: 100px;
+}
+
+#boards_tab {
+    left: 200px;
+}
+
+#missions_tab {
+    left: 300px;
+}
+
+#photos_tab {
+    left: 400px;
+}
+
+#teams_tab {
+    left: 500px;
+}
+
+#users_tab {
+    left: 600px;
+}
+
+#logout_tab {
+    left: 700px;
+}
+
+#content {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: white;
+}

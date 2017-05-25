@@ -1,0 +1,21 @@
+<%= render 'shared/admin_header', title: 'Assign Mission' %>
+<div id='content'>
+  <%= form_for @assignment, url: mission_assignments_path do |f| %>
+    <%= f.hidden_field :mission_id, value: @mission.id %>
+    <p>
+      <%= f.label 'Team' %>
+      <%= f.collection_select :team_id, Team.pc, :id, :name %>
+    </p>
+    <p>
+      <%= f.label 'Start Time' %>
+      <%= f.time_select :start_time %>
+    </p>
+    <p>
+      <%= f.submit 'Assign the Mission' %>
+    <p>
+  <% end %>
+
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', mission_path(@mission) %></p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<%= render 'shared/user_header', title: 'Edit User Info' %>
+
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag 'logo_black.png' %></div>
+  <%= render 'shared/errors', container: @curr_user %>
+  <%= form_for @curr_user, url: user_path(@curr_user) do |f| %>
+    <p>
+      <%= f.label 'Codename' %>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label 'New Password' %>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label 'Confirm Password' %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= f.submit 'Save Changes' %>
+    </p>
+  <% end %>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', home_user_path %></p>
+  </div>
+</div>

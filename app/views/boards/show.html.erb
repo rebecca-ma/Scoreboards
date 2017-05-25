@@ -1,28 +1,26 @@
-<h1><%= @board.title %></h1>
+<%= render 'shared/user_header', title: @board.title %>
 
-<p><%= @board.description %></p>
-
-<table>
-  <tr>
-    <td>Rank</td>
-    <td>Team</td>
-    <td>Score</td>
-  </tr>
-  <% @board.scores_by_rank.each do |score| %>
+<div id='ucontent'>
+  <div id='small_logo'><%= image_tag @curr_user.team.image_url %></div>
+  <div id='board_description'><%= @board.description %></div>
+  
+  <table class='score_board'>
+    <caption>Scores</caption>
     <tr>
-      <td><%= score.rank %></td>
-      <td><%= score.team.name %></td>
-      <td>
-        <%= link_to score.score,
-            edit_score_path(board_id: @board, id: score) %>
-      </td>
+      <th>Rank</th>
+      <th>Team</th>
+      <th>Score</th>
     </tr>
-  <% end %>
-</table>
+    <% @board.scores_by_rank.each do |score| %>
+      <tr <%= "id=team_score" if score.team == @curr_user.team %>>
+        <td><%= score.rank %></td>
+        <td><%= score.team.name %></td>
+        <td><%= score.score %></td>
+      </tr>
+    <% end %>
+  </table>
 
-<%= link_to 'Submit a Score', new_score_path %>
-<%= link_to 'Delete this Board',
-    board_path(@board),
-    method: :delete,
-    data: { confirm: 'Delete this Board?' } %>
-<%= link_to 'Return to Boards Index', boards_path %>
+  <div id='foot_links'>  
+    <p><%= link_to 'Return', home_team_path %></p>
+  </div>
+</div>

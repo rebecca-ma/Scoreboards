@@ -1,0 +1,30 @@
+<div id='header'>
+  <div id='page_title'><%= title %></div>
+  <div id='logo'></div>
+  <div id='tabs'>
+    <div class='tab' id='home_tab'>
+      <%= link_to 'Home', home_admin_path %>
+    </div>
+    <div class='tab' id='admins_tab'>
+      <%= link_to 'Admins', admins_path %>
+    </div>
+    <div class='tab' id='boards_tab'>
+      <%= link_to 'Boards', boards_path %>
+    </div>
+    <div class='tab' id='missions_tab'>
+      <%= link_to 'Missions', missions_path %>
+    </div>
+    <div class='tab' id='photos_tab'>
+      <%= link_to 'Photos', admin_photos_path %>
+    </div>
+    <div class='tab' id='teams_tab'>
+      <%= link_to 'Teams', teams_path %>
+    </div>
+    <div class='tab' id='users_tab'>
+      <%= link_to 'Users', users_path %>
+    </div>
+    <div class='tab' id='logout_tab'>
+      <%= link_to 'Logout', logout_admin_path %>
+    </div>
+  </div>
+</div>

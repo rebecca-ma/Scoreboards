@@ -1,0 +1,312 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: black;
+    font-size: 2em;
+}
+
+p {
+    font-size: 0.7em;
+}
+
+caption {
+    font-size: 1em;
+}
+
+td {
+    font-size: 1em;
+}
+
+// ------ HEADER ------
+
+#lheader {
+    width: 100vw;
+    height: 10vw;
+}
+
+#lpage_title {
+    line-height: 10vw;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 6vw;
+    color: white;
+}
+
+#uheader {
+    top: 0;
+    width: 100vw;
+    height: 20vw;
+    background-color: #094561;
+    border-top: 4px yellow solid;
+}
+
+#upage_title {
+    width: 100%;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 6vw;
+    color: white;
+}
+
+#ulogo {
+    margin-top: -12vw;
+    padding: 0;
+    width: 100%;
+}
+
+#ulogo img {
+    max-height: 20vw;
+}
+
+#utabs {
+    margin-top: -8vw;
+    width: 100%;
+    text-align: center;
+}
+
+.utab {
+    display: inline-block;
+    width: 18vw;
+    height: 6vw;
+    line-height: 6vw;
+    vertical-align: middle;
+    font-size: 3vw;
+    color: white;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+
+.utab a {
+    color: white;
+    text-decoration: none;
+}
+
+// ------ CONTENT ------
+
+#lcontent {
+    padding: 10vw 5vw;
+    width: 90vw;
+    min-height: 80vh;
+    text-align: center;
+    color: black;
+    background-color: WhiteSmoke;
+}
+
+#ucontent {
+    padding: 10vw 5vw;
+    width: 90vw;
+    min-height: 140vw;
+    text-align: center;
+    color: black;
+    background-color: WhiteSmoke;
+}
+
+#ucontent a {
+    color: black;
+}
+
+#uphoto img {
+    width: 60%;
+}
+
+#small_logo {
+    margin-bottom: 8vw;
+    padding: 2vw;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+}
+
+#small_logo img {
+    width: 20%;
+}
+
+.list {
+    display: inline-block;
+    margin: 8vw 0;
+    width: 90vw;
+}
+
+.list caption {
+    width: inherit;
+    height: 8vw;
+    line-height: 8vw;
+    font-size: 5vw;
+    vertical-align: middle;
+    margin-bottom: 4vw;
+    border-bottom: solid 1px black;
+}
+
+.list td {
+    height: 6vw;
+    line-height: 6vw;
+    vertical-align: middle;    
+    font-size: 4vw;
+}
+
+.score_board {
+    display: inline-block;
+    margin: 8vw 0;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    background-color: SlateGray;
+}
+
+.score_board caption {
+    width: inherit;
+    height: 8vw;
+    line-height: 8vw;
+    font-size: 3vw;
+    vertical-align: middle;
+    color: white;
+}
+
+.score_board th {
+    padding: 1vw;
+    line-height: 5vw;
+    font-size: 3vw;
+    color: white;
+}
+
+.score_board td {
+    padding: 1vw;
+    line-height: 6vw;
+    vertical-align: middle;    
+    font-size: 4vw;
+    background-color: AliceBlue;
+}
+
+#team_score td {
+    background-color: Wheat;
+}
+
+#board_description {
+    padding: 3vw;
+    border: 14px SlateGray solid;
+    background-color: AliceBlue;
+    line-height: 5vw;
+    vertical-align: middle;
+    font-size: 3vw;
+}
+
+input {
+    margin: 1vw;
+    height: 5vw;
+    width: 60vw;
+    text-align: center;
+    font-size: 3vw;
+    border: 1px SlateGray solid;
+}
+
+textarea {
+    margin: 1vw;
+    height: 20vw;
+    width: 60vw;
+    font-size: 3vw;
+    border: 1px SlateGray solid;
+}
+
+#upload_photo {
+    margin: 2vw;
+    height: 5vw;
+    line-height: 5vw;
+    text-align: middle;
+    font-size: 3vw;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+}
+
+#upload_photo a {
+    text-decoration: none;
+}
+
+#photo {
+    display: inline-block;
+    width: 60vw;
+    padding: 10px;
+    background-color: AliceBlue;
+    border-top: 4px SlateGray solid;
+    border-left: 4px SlateGray solid;
+    border-right: 4px SlateGray solid;
+}
+
+#photo img {
+    width: 100%;
+}
+
+#photo_caption {
+    display: inline-block;
+    width: 60vw;
+    height: 20vw;
+    padding: 10px;
+    overflow: scroll;
+    border-left: 4px SlateGray solid;
+    border-right: 4px SlateGray solid;
+    border-bottom: 4px SlateGray solid;
+    background-color: AliceBlue;
+}
+
+#photo_caption_foot {
+    display: inline-block;
+    width: 60vw;
+    height: 5vw;
+    background-color: SlateGray;
+    border: 14px SlateGray solid;
+    line-height: 5vw;
+    font-size: 2vw;
+    color: white;
+}
+
+#photo_caption_foot a {
+    color: white;
+    text-decoration: none;
+}
+
+.photo_container {
+    margin: 1vw;
+    display: inline-block;
+}
+
+.photo {
+    padding: 0;
+    height: 24vw;
+    width: 36vw;
+    overflow: hidden;
+    border: 1px black solid;
+}
+
+.photo img {
+    width: 100%;
+}
+
+.photo_foot {
+    height: 4vw;
+    width: 36vw;
+    line-height: 4vw;
+    vertical-align: middle;
+    font-size: 2vw;
+    border: 1px black solid;
+    background-color: SlateGray;
+    color: white;
+}
+
+#mission_giver {
+    padding: 1vw;
+    height: 3vw;
+    line-height: 3vw;
+    vertical-align: middle;
+    font-size: 2vw;
+    background-color: SlateGray;
+    color: white;
+}
+
+#mission_description {
+    padding: 4vw;
+    line-height: 3vw;
+    font-size: 3vw;
+    border: 14px SlateGray solid;
+    background-color: AliceBlue;
+}

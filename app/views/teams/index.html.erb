@@ -1,0 +1,19 @@
+<%= render 'shared/admin_header', title: 'Teams' %>
+
+<div id='content'>
+  <p><%= link_to 'Create a New Team', new_team_path %></p>
+  
+  <table class='table'>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, team_path(team) %></td>
+        <td>
+          <%= link_to 'delete',
+          team_path(team),
+          method: :delete,
+          data: { confirm: 'Delete this team and all its users?' }%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,21 @@
+<%= render 'shared/admin_header', title: 'View Photo' %>
+<div id='content'>
+  <%= render @photo %>
+  <div id="photo_caption">
+    <p><%= @photo.caption.text %></p>
+    <p><%= link_to 'Edit Caption',
+           edit_photo_caption_path(@photo, @photo.caption) %></p>
+    <p>Belongs to team: <%= @photo.team.name %></p>
+    <p>
+      Uploaded by <%= @photo.user.blank? ? 'admin' : @photo.user.username %>
+    </p>
+  </div>
+  
+  <div id='foot_links'>
+    <p><%= link_to 'Delete Photo',
+        admin_photo_path(@photo),
+        method: :delete,
+        data: { confirm: 'Delete this photo?' } %></p>
+    <p><%= link_to 'Return to Photo Index', admin_photos_path %></p>
+  </div>
+</div>

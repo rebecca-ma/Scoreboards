@@ -1,0 +1,17 @@
+<%= render 'shared/admin_header', title: 'Edit Caption' %>
+
+<div id='content'>
+  <%= form_for @caption do |f| %>
+    <div id="photo">
+      <%= image_tag @photo.image.url %>
+    </div>
+    <p>Photo belongs to team <%= @photo.team.name %></p>
+    <p>Uploaded by <%= @photo.user.blank? ? 'admin' : @photo.user.name %></p>
+    <p><%= f.text_area :text %></p>
+    <p><%= f.submit 'Save Caption' %></p>
+  <% end %>
+
+  <div id='foot_links'>
+    <p><%= link_to 'Cancel', admin_photo_path(@photo) %></p>
+  </div>
+</div>
