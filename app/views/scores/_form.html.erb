@@ -1,6 +1,6 @@
 <%= render 'shared/errors', container: @score %>
 
-<%= form_for @score, url: board_scores_path(@board) do |f| %>
+<%= form_for @score, url: url do |f| %>
   <%= f.hidden_field :board_id, value: @board.id %>
   <p>
     <%= f.label 'Team' %>

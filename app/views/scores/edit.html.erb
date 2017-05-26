@@ -1,6 +1,7 @@
 <%= render 'shared/admin_header', title: 'Change Score for ' + @board.title %>
 <div id='content'>
-  <%= render 'form', submit_msg: 'Change Score' %>
+  <%= render 'form', url: board_score_path(@board, @score),
+      submit_msg: 'Change Score' %>
   
   <div id='foot_links'>
     <p><%= link_to 'Back to Board', admin_board_path(@board) %></p>
