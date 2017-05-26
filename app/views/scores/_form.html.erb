@@ -4,7 +4,7 @@
   <%= f.hidden_field :board_id, value: @board.id %>
   <p>
     <%= f.label 'Team' %>
-    <%= f.collection_select :team_id, Team.pc, :id, :name %>
+    <%= f.collection_select :team_id, Team.all, :id, :name %>
   </p>
   <p>
     <%= f.label 'Score (Integer)' %>
