@@ -3,7 +3,7 @@ class CaptionsController < ApplicationController
     verify_user {
       @photo = Photo.find(params[:photo_id])
       if @curr_user != @photo.user
-        redirect_to back
+        redirect_back
       else
         @caption = @photo.caption
       end
@@ -14,7 +14,7 @@ class CaptionsController < ApplicationController
     verify_user {
       @photo = Photo.find(params[:photo_id])
       if @curr_user != @photo.user
-        redirect_to back
+        redirect_back
       else
         @caption = @photo.caption
         if @caption.update(caption_params)
